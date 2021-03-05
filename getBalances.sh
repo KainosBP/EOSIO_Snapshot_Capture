@@ -11,7 +11,7 @@ unstakebw=0
 total=0
 
 while read name; do
-        JSON=$(teclos.sh get account $name -j)
+        JSON=$(cleos get account $name -j)
         liquid=$(echo $JSON | jq .core_liquid_balance | cut -d ' ' -f 1 | cut -d '"' -f 2)
 #       liquid=$(teclos.sh get account $name -j | jq .core_liquid_balance | cut -d ' ' -f 1 | cut -d '"' -f 2)
         cpu=$(echo $JSON | jq .total_resources.cpu_weight | cut -d ' ' -f 1 | cut -d '"' -f 2)
